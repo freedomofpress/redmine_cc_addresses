@@ -1,11 +1,10 @@
 require 'redmine'
 
 # Patches to the Redmine core.
-require 'dispatcher'
+require 'mailer'
 
-Dispatcher.to_prepare :redmine_cc_addresses do
+ActionDispatch::Callbacks.to_prepare do
   require_dependency 'cc_addresses_issue_show_hook'
-
   require_dependency 'issue'
   # Guards against including the module multiple time (like in tests)
   # and registering multiple callbacks
