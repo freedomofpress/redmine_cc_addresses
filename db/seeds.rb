@@ -1,1 +1,1 @@
-CcAddress.create(mail: 'person@example.com', issue_id: '13')
+CcAddress.create(mail: 'kevin@freedom.press', issue_id: '13')

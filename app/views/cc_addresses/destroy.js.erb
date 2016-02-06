@@ -1,0 +1,2 @@
+$('#cc_address_<%= j params[:id] %>').remove();
+$("cc-addresses").update("<%= escape_javascript(render(:partial => 'issues/cc_addresses')) %>");
