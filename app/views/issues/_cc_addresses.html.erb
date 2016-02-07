@@ -1,3 +1,4 @@
+<% if @issue.project.module_enabled?(:cc_addresses) %>
 <hr />
 <div id="cc-addresses">
 
@@ -60,3 +61,4 @@
 </table>
   <% end %>
 </div>
+<% end %>
