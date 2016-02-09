@@ -5,12 +5,11 @@ class CcAddressesController < ApplicationController
 
   def create
     @cc_address ||= CcAddress.new(addr_params)
-    if request.post?
-      @cc_address.save
-    end
-    respond_to do |format|
-      format.html { redirect_to :back }
-      format.js
+    if request.post? && @cc_address.save
+      respond_to do |format|
+        format.html { redirect_to :back }
+        format.js
+      end
     end
   end
 

@@ -24,8 +24,8 @@
             <% if authorize_for('cc_addresses', 'destroy') %>
               <td style="border: 0; padding: 0;">
               <td style="border: 0; padding: 0;">
-                <%= link_to 'Delete', { :controller => 'cc_addresses', :action => 'destroy', :issue_id => @issue, :id => cc_address.id }, :method => :post, :remote => true
-                %>
+                <%= link_to 'Delete', { :controller => 'cc_addresses', :action => 'destroy', :issue_id => @issue, :id => cc_address.id },
+                      :method => :post, :remote => true %>
               </td>
             <% end %>
           </tr>
