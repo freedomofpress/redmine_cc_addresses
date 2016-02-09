@@ -1,7 +1,6 @@
 <% if @issue.project.module_enabled?(:cc_addresses) %>
-<hr />
 <div id="cc-addresses">
-
+<hr />
   <div class="contextual">
   <% if authorize_for('cc_addresses', 'create') %>
       <%= toggle_link l(:button_add), 'new-cc-address-form' %>
