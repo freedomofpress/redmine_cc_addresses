@@ -10,9 +10,11 @@ module MailerPatch
   module InstanceMethods
     def issue_edit_with_cc_addresses(journal, to_users, cc_users)
       issue = journal.journalized.reload
-      cc_addresses = issue.cc_addresses.collect {|m| m.mail}
-      unless cc_addresses.empty?
-        cc_users << cc_addresses
+      if issue.project.module_enabled?(:cc_addresses)
+        cc_addresses = issue.cc_addresses.collect {|m| m.mail}
+        unless cc_addresses.empty?
+          cc_users << cc_addresses
+        end
       end
       issue_edit_without_cc_addresses(journal, to_users, cc_users)
     end
