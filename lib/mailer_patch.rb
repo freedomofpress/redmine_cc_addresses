@@ -11,7 +11,9 @@ module MailerPatch
     def issue_edit_with_cc_addresses(journal, to_users, cc_users)
       issue = journal.journalized.reload
       cc_addresses = issue.cc_addresses.collect {|m| m.mail}
-      cc_users << cc_addresses
+      unless cc_addresses.empty?
+        cc_users << cc_addresses
+      end
       issue_edit_without_cc_addresses(journal, to_users, cc_users)
     end
   end
