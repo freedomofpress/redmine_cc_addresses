@@ -11,17 +11,11 @@ Redmine::Plugin.register :redmine_cc_addresses do
   end
 end
 
-require_dependency 'issue_patch'
-require_dependency 'mailer_patch'
-
-ActionDispatch::Callbacks.to_prepare do
+Rails.configuration.to_prepare do
   require_dependency 'cc_addresses_issue_show_hook'
   require_dependency 'issue'
   unless Issue.included_modules.include? IssuePatch
     Issue.send(:include, IssuePatch)
   end
-  require_dependency 'mailer'
-  unless Mailer.included_modules.include? MailerPatch
-    Mailer.send(:include, MailerPatch)
-  end
+  MailerPatch.apply
 end
