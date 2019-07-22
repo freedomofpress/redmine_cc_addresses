@@ -14,7 +14,6 @@ module MailerPatch
 
   module InstanceMethods
     def process(action, *args)
-      byebug
       if action.to_s == "issue_edit" and args.first.is_a?(String)
         u = CcAddressUser.new
         u.mail = args.first
@@ -28,11 +27,13 @@ module MailerPatch
 
   module ClassMethods
     def email_addresses(arg)
-      if arg.is_a?(CcAddressUser)
-        [arg.mail]
-      else
-        super
-      end
+      Array.wrap(arg).flatten.map do |u|
+        if u.is_a?(CcAddressUser)
+          u.mail
+        else
+          super u
+        end
+      end.flatten
     end
 
     def deliver_issue_edit(journal)
