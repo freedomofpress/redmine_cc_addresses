@@ -31,9 +31,9 @@ Usage
 ### Install
 
 1. `cd [redmine]/plugins/`
-2. `git clone https://github.com/ageis/redmine_cc_addresses.git`
-3. `rake db:migrate_plugins`
-4. `touch [redmine]/tmp/restart.txt`
+2. `git clone https://github.com/ageis/redmine_cc_addresses.git` (change repo URL and switch to appropriate branch as needed)
+3. `rake redmine:plugins:migrate`
+4. restart your Redmine server
 
 ### Enabling and Permissions
 
