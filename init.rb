@@ -12,10 +12,6 @@ Redmine::Plugin.register :redmine_cc_addresses do
 end
 
 Rails.configuration.to_prepare do
-  require_dependency 'cc_addresses_issue_show_hook'
-  require_dependency 'issue'
-  unless Issue.included_modules.include? IssuePatch
-    Issue.send(:include, IssuePatch)
-  end
-  MailerPatch.apply
+  RedmineCcAddresses.setup
 end
+
