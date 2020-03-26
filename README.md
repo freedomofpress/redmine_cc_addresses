@@ -1,35 +1,53 @@
-#Redmine CC addresses plugin
-##About
-Allows the addition of generic CC entries to allow status messages to get sent to non-registered or other external members of a project / Redmine instance.
+Redmine CC addresses plugin
+===========================
 
-Forked from Nick Peelman's [CC Addresses](https://github.com/peelman/redmine_cc_addresses) plugin. Updated to work with Rails 4 and Redmine 3.x.
+About
+-----
 
-Check out Eric Davis's [Email Watchers](http://github.com/edavis10/redmine_email_watchers) for an alternative (Redmine 1.x).
+Allows the addition of generic CC entries to allow status messages to get sent
+to non-registered or other external members of a project / Redmine instance.
 
-###Features
+This fork/branch is updated to (and requires) Redmine 4.x.
+
+### Version
+
++ Currently at 0.5
++ Requires Redmine 4.x or later
+
+### Languages
+
++ English
+
+Features
+--------
+
 + One permission for viewing, creating and adding addresses on issues
 + Extends Redmine's existing Mailer model, rules like BCC recipients are obeyed
 + Validates email addresses on entry
 
-###Version
-+ Currently at 0.4
-+ Requires Redmine 3.x or later
+Usage
+-----
 
-###Languages
-+ English
+### Install
 
-###Usage
-####Install
-1. `cd [redmine]/vendor/plugins/`
-2. `git clone https://github.com/ageis/redmine_cc_addresses.git`
-3. `rake db:migrate_plugins`
-4. `touch [redmine]/tmp/restart.txt`
+1. `cd [redmine]/plugins/`
+2. `git clone https://github.com/ageis/redmine_cc_addresses.git` (change repo URL and switch to appropriate branch as needed)
+3. `rake redmine:plugins:migrate`
+4. restart your Redmine server
 
-####Enabling and Permissions
+### Enabling and Permissions
+
 + Needs to be enabled per-project in the Modules tab
 + Permissions are set via the traditional role method
 
-##Author
+
+Authors / Forking history
+------------------------
+
+Updated for Redmine 4 by Jens Kraemer for [Freedom of the Press Foundation](https://github.com/freedomofpress):
+
+- jk \[at\] jkraemer \[dot\] net
+- [github.com/jkraemer](https://github.com/jkraemer)
 
 Updated by Kevin Gallagher:
 
@@ -42,7 +60,10 @@ Originally by Nick Peelman:
 - [peelman.us](http://peelman.us)
 - [github.com/peelman](https://github.com/peelman)
 
-##Credits
+
+Credits
+-------
+
 Extrapolated and hacked as a cross between:
 
 + Nick Peelman's Departments plugin [](https://github.com/peelman/redmine_departments)
@@ -52,6 +73,9 @@ Extrapolated and hacked as a cross between:
 
 Extra special thanks to Chris Moore (https://github.com/cdmwebs)
 
-##Licensing
+Licensing
+---------
+
 * This plugin is open-source and licensed under the "GNU General Public License v2" (GPL, http://www.gnu.org/licenses/old-licenses/gpl-2.0.html).
 * &copy; 2010-2011 Nick Peelman
+

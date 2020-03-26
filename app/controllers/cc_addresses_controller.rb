@@ -1,7 +1,6 @@
 class CcAddressesController < ApplicationController
-  before_filter :find_project
-  before_filter :authorize
-  unloadable
+  before_action :find_project
+  before_action :authorize
 
   def create
     @cc_address ||= CcAddress.new(addr_params)
@@ -23,8 +22,9 @@ class CcAddressesController < ApplicationController
       format.js
     end
   end
-  
-private
+
+  private
+
   def addr_params
     params.require(:new_address).permit(:mail, :issue_id)
   end
